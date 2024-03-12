@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>MybatisSpring</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <!--    java注解包 如set、get相关注解,lombok包-->
+        <dependency>
+            <groupId> org.projectlombok</groupId>
+            <artifactId> lombok</artifactId>
+            <version> 1.18.18</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--    依赖注入包-->
+        <dependency>
+            <groupId> javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>5.2.13.RELEASE</version>
+        </dependency>
+        <!--aop包-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>5.2.13.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.2.13.RELEASE</version>
+        </dependency>
+        <!--    数据库包-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.23</version>
+        </dependency>
+        <!--    jdbc包-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.2.13.RELEASE</version>
+        </dependency>
+<!--        Spring,webmvc包-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.7</version>
+        </dependency>
+
+        <!--    aop置入包-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.6</version>
+        </dependency>
+        <!--    mybaits包-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.6</version>
+        </dependency>
+        <!--    mybatis整合Spring包-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>2.0.6</version>
+        </dependency>
+        <!--       LOG4J.logging包-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.14.1</version>
+        </dependency>
+        <!--        LOG4J包，用来打印执行了哪些操作到控制台或者文件中-->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+    </dependencies>
+    <!-- 配置资源目录 ：  -->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory><!--所在的目录-->
+                <includes><!--包括目录下的.properties,.xml 文件都会扫描到-->
+                    <include>**/*.properties</include> <!-- **/ 表示目录的递归，即任意级的目录； -->
+                    <include>**/*.xml</include>
+                </includes>
+                <!-- filtering 选项 false 不启用过滤器， *.property 已经起到过滤的作用了 -->
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>
