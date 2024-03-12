@@ -1,7 +1,0 @@
-
----BeanPostProcessor这就叫做回调接口，它里面的两个方法在bean实例化前后会执行这两个方法就叫做回调
-
-BeanPostProcessor 在bean初始化前后的处理以及
-InitializingBean 和 init-method 的初始化操作
-所以就是在本次实验中，bean初始化时，会去执行实现了BeanPostProcessor接口的类，然后就是
-会去执行实现了BeanPostProcessor的postProcessAfterInitialization方法的类
