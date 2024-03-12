@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"/>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+<!--    映射器mappers的方法优化-->
+    <mappers>
+<!--        第一种方法，在resources文件中使用InterUser.xml文件-->
+        <mapper resource="InterUser.xml"/>
+<!--        第二种方法，当数据库配置文件InterUser.xml配置文件在类pojo里面就使用class来进行装配-->
+<!--        要使用第二种方法，就必须把配置数据库配置文件interUser.xml文件和接口文件放在同一个包下并且两个文件名得相同-->
+<!--        <mapper class="pojo.InterUser"/>-->
+    </mappers>
+</configuration>

@@ -1,0 +1,18 @@
+生命周期和作用域是至关重要的，因为错误的使用会导致非常严重的并发问题
+
+
+ String str="ConFigMybatis.xml";
+ InputStream inputStream= Resources.getResourceAsStream(str);
+ 先用Resources.getResourceAsStream用输入流获取配置文件
+
+SqlSessionFactory sessionFactory=new SqlSessionFactoryBuilder().build(inputStream);用来创建工厂SqlSessionFactory来获取输入流
+SqlSessionFactory工厂 创造完后就不再需要它了，所有一般放在局部变量里面
+SqlSessionFactory也可以将它想象成数据库连接池跟工厂是同一个意思
+
+然后在用工厂创建SqlSession方法，用SqlSession方法来进行数据库的相关操作，如用SqlSession来获取Mapper:例如：session.getMapper，可以连多个Mapper
+public static SqlSession session(){
+        return sessionFactory.openSession();
+    }
+    使用SqlSession之后就要进行关闭，如果不关闭就会非常占用资源内存也就是SqlSession.close
+
+    //对这个解说最终就是为了说明”生命周期和作用域是至关重要的，因为错误的使用会导致非常严重的并发问题“

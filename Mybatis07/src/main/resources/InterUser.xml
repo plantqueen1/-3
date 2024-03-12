@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--此文件为数据库配置文件-->
+<!--namespace绑定一个Mapper/User接口-->
+<!--接口实现类-->
+<mapper namespace="pojo.InterUser">
+    <select id="getSelect" resultType="Dao.User">
+    select * from `account`
+    </select>
+
+    <select id="selectId" resultType="Dao.User" parameterType="map">
+        select * from `account` where id1=#{id}
+    </select>
+
+    <update id="UpdateUser" parameterType="map">
+        update `account` set name=#{name},money=#{money} where id1=#{id}
+    </update>
+
+    <insert id="insertAdd" parameterType="map">
+        insert into `account` (id1,name,money) value (#{id},#{name},#{money})
+    </insert>
+
+    <delete id="DeleteUser" parameterType="map">
+        delete from `account` where id1=#{id}
+    </delete>
+
+    <select id="dimSelect" parameterType="map" resultType="Dao.User">
+        select * from `account` where name like #{map}
+    </select>
+</mapper>
